@@ -22,3 +22,4 @@ var characterSchema = new mongoose.Schema({
     vision: Number,
     weight: Number
 });
+var User = mongoose.model("Character", characterSchema);
