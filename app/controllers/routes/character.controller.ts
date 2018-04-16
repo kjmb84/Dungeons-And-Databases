@@ -7,4 +7,9 @@ router.get('/:characterID', (req: Request, res: Response) => {
     res.send(`${characterID}`);
 });
 
+router.post('/:characterID', (req: Request, res: Response) => {
+    let characterID: number = req.params.characterID;
+    
+});
+
 export const CharacterController: Router = router;

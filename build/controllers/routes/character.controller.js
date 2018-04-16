@@ -6,4 +6,7 @@ router.get('/:characterID', function (req, res) {
     var characterID = req.params.characterID;
     res.send("" + characterID);
 });
+router.post('/:characterID', function (req, res) {
+    var characterID = req.params.characterID;
+});
 exports.CharacterController = router;
