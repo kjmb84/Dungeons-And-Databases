@@ -18,5 +18,5 @@ app.use(bodyParser.json());
 app.use('/api', ApiController);
 
 app.listen(port, () => {
-    console.log("listening a lot");
-});
+    console.log("listening a lot"); 
+}); 
