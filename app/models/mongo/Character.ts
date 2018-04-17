@@ -1,5 +1,7 @@
-import * as mongoose from "mongoose";
-import Character from '../express/character';
+import mongoose from "mongoose";
+import ICharacter from '../express/ICharacter';
+
+interface ICharacterModel extends ICharacter, mongoose.Document { }
 
 var characterSchema = new mongoose.Schema({
     age: Number,
@@ -16,8 +18,7 @@ var characterSchema = new mongoose.Schema({
     weight: Number
 })
 
-interface CharacterModel extends Character, mongoose.Document { }
 
-var User = mongoose.model<CharacterModel>("Character", characterSchema);
+var Character = mongoose.model<ICharacterModel>("Character", characterSchema);
 
 export = Character;

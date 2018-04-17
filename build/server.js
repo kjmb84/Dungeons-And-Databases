@@ -7,6 +7,7 @@ var api_controller_1 = require("./controllers/api.controller");
 var express_1 = __importDefault(require("express"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var body_parser_1 = __importDefault(require("body-parser"));
+
 var db = mongoose_1.default.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', function () { return console.log('connected'); });

@@ -1,6 +1,6 @@
 import DeathSaves from './deathSaves';
 
-interface Character {
+interface ICharacter {
     age: number;
     currency: number;
     currentHP: number;
@@ -15,4 +15,4 @@ interface Character {
     weight: number;
 }
 
-export = Character;
+export = ICharacter;

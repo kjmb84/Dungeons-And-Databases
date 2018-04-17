@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
+var Character = require("../../models/mongo/Character");
 var router = express_1.Router();
 router.get('/:characterID', function (req, res) {
     var characterID = req.params.characterID;
@@ -8,7 +9,9 @@ router.get('/:characterID', function (req, res) {
 });
 router.post('/:characterID', function (req, res) {
     var characterID = req.params.characterID;
-    console.log(req.body.character);
-    res.send(req.body.character);
+    var character = new Character(req.body.character);
+    console.log(character);
+    character.save();
+    res.send(character);
 });
 exports.CharacterController = router;

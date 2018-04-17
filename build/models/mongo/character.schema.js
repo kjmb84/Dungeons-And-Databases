@@ -6,7 +6,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = __importStar(require("mongoose"));
 var characterSchema = new mongoose.Schema({
     age: Number,
@@ -23,3 +22,4 @@ var characterSchema = new mongoose.Schema({
     weight: Number
 });
 var User = mongoose.model("Character", characterSchema);
+module.exports = CharacterModel;

@@ -1,5 +1,5 @@
 import {Router, Request, Response } from 'express';
-import Character from '../../models/mongo/character.schema';
+import Character = require('../../models/mongo/Character');
 
 const router: Router = Router();
 
@@ -9,9 +9,11 @@ router.get('/:characterID', (req: Request, res: Response) => {
 });
 
 router.post('/:characterID', (req: Request, res: Response) => {
-    let characterID: number = req.params.characterID;
-    console.log(req.body.character);
-    res.send(req.body.character);
+    let characterID = req.params.characterID;
+    let character = new Character(req.body.character);
+    console.log(character);
+    character.save();
+    res.send(character);
 });
 
 export const CharacterController: Router = router;
