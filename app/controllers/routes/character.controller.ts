@@ -12,8 +12,8 @@ router.post('/:characterID', (req: Request, res: Response) => {
     let characterID = req.params.characterID;
     let character = new Character(req.body.character);
     console.log(character);
-    character.save();
-    res.send(character);
+    let result = character.save();
+    res.send({"a": character, "b": result});
 });
 
 export const CharacterController: Router = router;
