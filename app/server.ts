@@ -11,21 +11,6 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', () => {
     console.log('connected');
-    let test = new Character({
-	    "age": 3,
-	    "currency": 5,
-	    "currentHP": 6,
-	    "deathSaves": {"successes": 1, "failures": 2},
-	    "experience": 100,
-	    "height": 120,
-	    "HP": 10,
-	    "name": "jerry",
-	    "speed": 30,
-	    "temporaryHP": 8,
-	    "vision": 120,
-	    "weight": 80
-    });
-    test.save(e => console.log(1,2,3,4,5,e));
 });
 mongoose.connect(mongoURL).catch(e => console.log(e));
  
