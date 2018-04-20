@@ -48,7 +48,7 @@ typings/
 .node_repl_history
 
 # Output of 'npm pack'
-*.tgz
+*.tgzs
 
 # Yarn Integrity file
 .yarn-integrity
@@ -58,3 +58,4 @@ typings/
 
 # next.js build output
 .next
+env.ts
