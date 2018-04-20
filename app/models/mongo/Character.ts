@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
 import ICharacter from '../express/ICharacter';
 
-interface ICharacterModel extends ICharacter, mongoose.Document { }
+// interface ICharacterModel extends ICharacter, mongoose.Document { }
+type CharacterType = ICharacter & mongoose.Document;
 
-var characterSchema = new mongoose.Schema({
+// var characterSchema = new mongoose.Schema({
+const Character = mongoose.model<CharacterType>('Character', new mongoose.Schema({
     age: Number,
     currency: Number,
     currentHP: Number,
@@ -16,9 +18,9 @@ var characterSchema = new mongoose.Schema({
     temporaryHP: Number,
     vision: Number,
     weight: Number
-})
+}))
 
 
-var Character = mongoose.model<ICharacterModel>("Character", characterSchema);
+// var Character = mongoose.model<ICharacterModel>("Character", characterSchema);
 
 export = Character;
