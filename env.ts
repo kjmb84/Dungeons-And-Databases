@@ -1,10 +1,12 @@
 const environment = {
     // mongoDB stuff
-    MongoUser: "atlas-admin",
-    MongoPassword: "uMBrYSuPTangerce",
-    MongoServer: "cluster1-bplqc.mongodb.net",
+    MongoUser: "admin",
+    MongoPassword: "IoNEMENDSpeNDlam",
+    MongoServer: "cluster0-bplqc.mongodb.net",
     MongoDatabase: "test",
-    MongoScheme: "mongodb+srv:"
+    MongoScheme: "mongodb+srv:",
+
+    Port: 3000
 };
 
 export = environment;

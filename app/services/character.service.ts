@@ -3,15 +3,28 @@ import ICharacter = require('../models/express/ICharacter');
 
 export default class CharacterService {
     
-    create(Icharacter: ICharacter): boolean {
-        let character = new Character(Icharacter);
-        character.save();
+    create(character: Character): boolean {
+        character.save().catch(e => console.log(e));
         return true;
+    }
+
+    find(id: number): Character {
+
+        // return Character.find({id: id});
+    }
+
+    findAll(): Character[] {
+        // return Character.find({});
     }
     
     update(id: string, Icharacter: ICharacter): boolean {
         let character = new Character(Icharacter);
-        Character.findOneAndUpdate({"id": id}, character)
+        Character.findOneAndUpdate({"id": id}, character);
+        return true;
+    }
+
+    deleteAll(): boolean {
+        Character.remove({}, () => {});
         return true;
     }
 }

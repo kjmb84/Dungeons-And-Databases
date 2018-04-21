@@ -3,9 +3,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import env from '../env';
-import Character from './models/mongo/Character';
 
-const mongoURL = `${env.MongoScheme}//${env.MongoUser}:${env.MongoPassword}@${env.MongoServer}/${env.MongoDatabase}`;
+// const mongoURL = `${env.MongoScheme}//${env.MongoUser}:${env.MongoPassword}@${env.MongoServer}/${env.MongoDatabase}`;
+const mongoURL = 'mongodb://localhost:27017/test';
 console.log(mongoURL);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
@@ -15,11 +15,10 @@ db.once('open', () => {
 mongoose.connect(mongoURL).catch(e => console.log(e));
  
 const app: express.Application = express();
-const port: number = 3000;
 
 app.use(bodyParser.json());
 app.use('/api', ApiController);
 
-app.listen(port, () => {
-    console.log("listening a lot"); 
+app.listen(env.Port, () => {
+    console.log("listening"); 
 });

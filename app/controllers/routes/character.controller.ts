@@ -1,6 +1,5 @@
 import {Router, Request, Response } from 'express';
 import Character = require('../../models/mongo/Character');
-import ICharacter = require ('../../models/express/ICharacter');
 // import characterService from '../../services/character.service';
 import CharacterService from '../../services/character.service';
 
@@ -15,20 +14,21 @@ router.get('/:characterID', (req: Request, res: Response) => {
 
 router.put('/:characterID', (req: Request, res: Response) => {
     let characterID = req.params.characterID;
-    let character: ICharacter  = req.body.character;
-    characterService.update(characterID, character);
-    res.send({"a": character});
+    let characterUpdateJson = req.body.character;
+    let characterUpdate: Character = Character.hydrate(characterUpdateJson);
+    characterService.update(characterID, characterUpdate);
+    res.send({"a": characterUpdate});
 });
 
 router.post('/', (req: Request, res: Response) => {
-    let characterJson = req.body.character;
-    let newCharacter = new Character(characterJson);
+    let newCharacterJson = req.body.character;
+    let newCharacter: Character = new Character(newCharacterJson);
     characterService.create(newCharacter);
-    newCharacter.save();
+    res.send("we've made it this far");
 })
 
 router.delete('/', (req: Request, res: Response) => {
-    Character.remove({}, () => {});
+    characterService.deleteAll();
     res.send("success");
 })
 
