@@ -1,13 +1,13 @@
 // import mongoose from "mongoose";
 import mongoose = require('mongoose');
 import ICharacter from '../express/ICharacter';
+import Alignment from '../mongo/Alignment';
 
 interface Character extends ICharacter, mongoose.Document { }
-// type CharacterType = ICharacter & mongoose.Document;
 
 let characterSchema = new mongoose.Schema({
-// const Character = mongoose.model<CharacterType>('Character', new mongoose.Schema({
     age: Number,
+    alignment: Alignment.schema,
     currency: Number,
     currentHP: Number,
     deathSaves: {successes: Number, failures: Number},
@@ -15,12 +15,12 @@ let characterSchema = new mongoose.Schema({
     height: Number,
     HP: Number,
     name: String,
+    personalityTraits: [String],
     speed: Number,
     temporaryHP: Number,
     vision: Number,
     weight: Number
 });
-
 
 let Character = mongoose.model<Character>("Character", characterSchema);
 

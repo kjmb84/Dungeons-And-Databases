@@ -1,7 +1,7 @@
 import {Router, Request, Response } from 'express';
 import Character = require('../../models/mongo/Character');
-// import characterService from '../../services/character.service';
 import CharacterService from '../../services/character.service';
+import Alignment from '../../models/mongo/Alignment';
 
 const characterService = new CharacterService();
 
@@ -10,6 +10,17 @@ const router: Router = Router();
 router.get('/:characterID', (req: Request, res: Response) => {
     let characterID: number = req.params.characterID;
     res.send(`${characterID}`);
+});
+
+router.get('/', (req: Request, res: Response) => {
+    let character = new Character();
+    let alignment = new Alignment.model();
+    alignment.name = "asdf";
+    alignment.description = "fasdfas;jdlfkjasd;f";
+    character.alignment = alignment;
+    character.save();
+    characterService.findAll().then(characters => res.send(characters));
+    // res.send(characterService.findAll());
 });
 
 router.put('/:characterID', (req: Request, res: Response) => {
@@ -23,8 +34,8 @@ router.put('/:characterID', (req: Request, res: Response) => {
 router.post('/', (req: Request, res: Response) => {
     let newCharacterJson = req.body.character;
     let newCharacter: Character = new Character(newCharacterJson);
+
     characterService.create(newCharacter);
-    res.send("we've made it this far");
 })
 
 router.delete('/', (req: Request, res: Response) => {

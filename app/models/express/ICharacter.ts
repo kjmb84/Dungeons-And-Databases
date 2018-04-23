@@ -1,10 +1,9 @@
-import DeathSaves from './deathSaves';
-
-interface ICharacter {
+import IDeathSaves from './IDeathSaves';
+import IAlignment from './IAlignment';
+export default interface ICharacter {
     age: number;
     currency: number;
     currentHP: number;
-    deathSaves: DeathSaves;
     experience: number;
     height: number;
     HP: number;
@@ -13,6 +12,9 @@ interface ICharacter {
     temporaryHP: number;
     vision: number;
     weight: number;
+    
+    // Objects / Arrays
+    deathSaves: IDeathSaves;
+    personalityTraits: string[];
+    alignment: IAlignment;
 }
-
-export = ICharacter;

@@ -1,5 +1,4 @@
 import Character = require('../models/mongo/Character');
-import ICharacter = require('../models/express/ICharacter');
 
 export default class CharacterService {
     
@@ -8,17 +7,18 @@ export default class CharacterService {
         return true;
     }
 
-    find(id: number): Character {
-
-        // return Character.find({id: id});
+    find(id: number): Promise<Character> {
+        let character: Character;
+        return Character.findOne({id: id})
+            .exec()
+            .then(foundCharacter =>foundCharacter || new Character());
     }
 
-    findAll(): Character[] {
-        // return Character.find({});
+    findAll(): Promise<Character[]> {
+        return Character.find({}).exec().then(characters => characters);
     }
     
-    update(id: string, Icharacter: ICharacter): boolean {
-        let character = new Character(Icharacter);
+    update(id: string, character: Character): boolean {
         Character.findOneAndUpdate({"id": id}, character);
         return true;
     }
@@ -28,5 +28,3 @@ export default class CharacterService {
         return true;
     }
 }
-
-// export = CharacterService;
