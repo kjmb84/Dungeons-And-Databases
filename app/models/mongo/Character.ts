@@ -1,8 +1,9 @@
 import mongoose = require('mongoose');
-import ICharacter from '../express/ICharacter';
+import Ability from '../mongo/Ability';
 import Alignment from '../mongo/Alignment';
 import Feat from '../mongo/Feat';
-import Ability from '../mongo/Ability';
+import ICharacter from '../express/ICharacter';
+import Skill from '../mongo/Skill';
 
 interface Character extends ICharacter, mongoose.Document { }
 
@@ -19,6 +20,7 @@ let characterSchema = new mongoose.Schema({
     HP: Number,
     name: String,
     personalityTraits: [String],
+    skills: [Skill.schema],
     speed: Number,
     temporaryHP: Number,
     vision: Number,
