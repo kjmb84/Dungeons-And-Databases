@@ -1,5 +1,6 @@
 import IAbility from './IAbility';
 import IAlignment from './IAlignment';
+import IBackground from './IBackground';
 import IDeathSaves from './IDeathSaves';
 import IFeat from './IFeat';
 import ISkill from './ISkill';
@@ -8,6 +9,7 @@ export default interface ICharacter {
     abilities: [IAbility];
     age: number;
     alignment: IAlignment;
+    background: IBackground;
     currency: number;
     currentHP: number;
     deathSaves: IDeathSaves;
