@@ -11,7 +11,7 @@ export default class CharacterService {
         let character: Character;
         return Character.findOne({id: id})
             .exec()
-            .then(foundCharacter =>foundCharacter || new Character());
+            .then(foundCharacter => foundCharacter || new Character());
     }
 
     findAll(): Promise<Character[]> {

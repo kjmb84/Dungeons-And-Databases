@@ -1,4 +1,3 @@
-// import mongoose from "mongoose";
 import mongoose = require('mongoose');
 import IAlignment from '../express/IAlignment';
 

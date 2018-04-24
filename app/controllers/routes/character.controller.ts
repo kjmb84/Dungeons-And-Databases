@@ -34,8 +34,9 @@ router.put('/:characterID', (req: Request, res: Response) => {
 router.post('/', (req: Request, res: Response) => {
     let newCharacterJson = req.body.character;
     let newCharacter: Character = new Character(newCharacterJson);
-
+    
     characterService.create(newCharacter);
+    res.send(newCharacter)
 })
 
 router.delete('/', (req: Request, res: Response) => {
