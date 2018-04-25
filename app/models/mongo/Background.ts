@@ -4,13 +4,15 @@ import Language from '../mongo/Language';
 
 interface Background extends IBackground, mongoose.Document { }
 let BackgroundSchema = new mongoose.Schema({
-    name: String,
-    description: String,
     attributes: [{
+        modifier: Number,
         name: String,
-        modifier: Number
+        proficient: Boolean
     }],
-    languages: [Language.schema]
+    description: String,
+    languages: [Language.schema],
+    name: String,
+    toolProficiences: [String]
 });
 
 
