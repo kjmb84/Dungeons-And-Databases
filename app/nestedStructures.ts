@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import Character from './models/mongo/Character';
+import Character from './models/mongo/character/Character';
 import CharacterService from './services/character.service';
 import { isArray } from 'util';
 

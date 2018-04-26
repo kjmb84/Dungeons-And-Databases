@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import IFeat from '../express/character-interfaces/IFeat';
+import IFeat from '../express/character/IFeat';
 
 interface Feat extends IFeat, mongoose.Document { }
 let FeatSchema = new mongoose.Schema({

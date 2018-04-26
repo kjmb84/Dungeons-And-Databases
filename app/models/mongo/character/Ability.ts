@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import IAbility from '../express/character-interfaces/IAbility';
+import IAbility from '../express/character/IAbility';
 
 interface Ability extends IAbility, mongoose.Document { }
 let AbilitySchema = new mongoose.Schema({

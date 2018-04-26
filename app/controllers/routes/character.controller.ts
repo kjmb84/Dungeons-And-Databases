@@ -1,7 +1,7 @@
 import {Router, Request, Response } from 'express';
 import Character = require('../../models/mongo/Character');
 import CharacterService from '../../services/character.service';
-import Alignment from '../../models/mongo/Alignment';
+import Alignment from '../../models/mongo/character/Alignment';
 
 const characterService = new CharacterService();
 

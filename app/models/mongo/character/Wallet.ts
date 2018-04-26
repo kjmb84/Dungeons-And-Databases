@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import IWallet from '../express/character-interfaces/IWallet';
+import IWallet from '../express/character/IWallet';
 
 
 interface Wallet extends IWallet, mongoose.Document { }

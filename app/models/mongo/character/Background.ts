@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import IBackground from '../express/character-interfaces/IBackground';
+import IBackground from '../express/character/IBackground';
 import Language from '../mongo/Language';
 
 interface Background extends IBackground, mongoose.Document { }
