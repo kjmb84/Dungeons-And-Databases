@@ -1,5 +1,5 @@
 import {Router, Request, Response } from 'express';
-import Character = require('../../models/mongo/Character');
+import Character = require('../../models/mongo/character/Character');
 import CharacterService from '../../services/character.service';
 import Alignment from '../../models/mongo/character/Alignment';
 
