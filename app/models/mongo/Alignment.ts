@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import IAlignment from '../express/IAlignment';
+import IAlignment from '../express/character-interfaces/IAlignment';
 
 interface Alignment extends IAlignment, mongoose.Document { }
 

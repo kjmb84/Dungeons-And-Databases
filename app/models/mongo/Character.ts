@@ -3,7 +3,7 @@ import Ability from '../mongo/Ability';
 import Alignment from '../mongo/Alignment';
 import Background from '../mongo/Background';
 import Feat from '../mongo/Feat';
-import ICharacter from '../express/ICharacter';
+import ICharacter from '../express/character-interfaces/ICharacter';
 import Skill from '../mongo/Skill';
 import Wallet from '../mongo/Wallet';
 
