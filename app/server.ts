@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import env from '../env';
+import NestedStructures from './nestedStructures';
 
 // const mongoURL = `${env.MongoScheme}//${env.MongoUser}:${env.MongoPassword}@${env.MongoServer}/${env.MongoDatabase}`;
 const mongoURL = 'mongodb://localhost:27017/test';
@@ -11,6 +12,7 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', () => {
     console.log('connected');
+    const nestedStructures: NestedStructures = new NestedStructures();
 });
 mongoose.connect(mongoURL).catch(e => console.log(e));
  

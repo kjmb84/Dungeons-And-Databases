@@ -7,9 +7,10 @@ let FeatSchema = new mongoose.Schema({
     name: String,
     description: String,
     perks: [String],
-    modifiers: [{
+    attributes: [{
         name: String,
-        modifier: Number
+        modifier: Number,
+        proficient: Boolean
     }]
 });
 
