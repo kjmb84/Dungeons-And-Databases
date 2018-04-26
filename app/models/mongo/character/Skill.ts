@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import ISkill from '../express/character/ISkill';
+import ISkill from '../../express/character/ISkill';
 
 interface Skill extends ISkill, mongoose.Document { }
 let SkillSchema = new mongoose.Schema({

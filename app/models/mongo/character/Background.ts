@@ -1,6 +1,6 @@
 import mongoose = require('mongoose');
-import IBackground from '../express/character/IBackground';
-import Language from '../mongo/Language';
+import IBackground from '../../express/character/IBackground';
+import Language from './Language';
 
 interface Background extends IBackground, mongoose.Document { }
 let BackgroundSchema = new mongoose.Schema({

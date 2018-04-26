@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import ILanguage from '../express/character/ILanguage';
+import ILanguage from '../../express/character/ILanguage';
 
 
 interface Language extends ILanguage, mongoose.Document { }

@@ -1,4 +1,4 @@
-import Character = require('../models/mongo/Character');
+import Character = require('../models/mongo/character/Character');
 
 export default class CharacterService {
 

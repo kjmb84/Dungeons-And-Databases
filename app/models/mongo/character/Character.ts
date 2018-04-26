@@ -1,11 +1,11 @@
 import mongoose = require('mongoose');
-import Ability from '../mongo/Ability';
-import Alignment from '../mongo/Alignment';
-import Background from '../mongo/Background';
-import Feat from '../mongo/Feat';
-import ICharacter from '../express/character/ICharacter';
-import Skill from '../mongo/Skill';
-import Wallet from '../mongo/Wallet';
+import Ability from './Ability';
+import Alignment from './Alignment';
+import Background from './Background';
+import Feat from './Feat';
+import ICharacter from '../../express/character/ICharacter';
+import Skill from './Skill';
+import Wallet from './Wallet';
 
 interface Character extends ICharacter, mongoose.Document { }
 
