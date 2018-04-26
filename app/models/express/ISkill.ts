@@ -1,6 +1,7 @@
 export default interface ISkill {
-    name: string;
+    ability: string;
     description: string;
-    proficient: boolean;
     modifier: number;
+    name: string;
+    proficient: boolean;
 }

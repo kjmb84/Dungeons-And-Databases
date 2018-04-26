@@ -12,7 +12,6 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
 db.once('open', () => {
     console.log('connected');
-    const nestedStructures: NestedStructures = new NestedStructures();
 });
 mongoose.connect(mongoURL).catch(e => console.log(e));
  

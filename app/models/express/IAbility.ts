@@ -1,6 +1,6 @@
 export default interface IAbility {
-    name: string;
-    shortName: string;
     description: string;
+    name: string;
     score: number;
+    shortName: string;
 }

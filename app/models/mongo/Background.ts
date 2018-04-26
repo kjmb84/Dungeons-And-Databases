@@ -15,11 +15,8 @@ let BackgroundSchema = new mongoose.Schema({
     toolProficiences: [String]
 });
 
-
 let BackgroundModel = mongoose.model<Background>('Background', BackgroundSchema);
 
-
 let Background = {model: BackgroundModel, schema: BackgroundSchema};
-
 
 export = Background;
