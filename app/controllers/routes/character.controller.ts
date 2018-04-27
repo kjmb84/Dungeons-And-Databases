@@ -14,13 +14,7 @@ router.get('/:characterID', (req: Request, res: Response) => {
 
 router.get('/', (req: Request, res: Response) => {
     let character = new Character();
-    let alignment = new Alignment.model();
-    alignment.name = "asdf";
-    alignment.description = "fasdfas;jdlfkjasd;f";
-    character.alignment = alignment;
-    character.save();
     characterService.findAll().then(characters => res.send(characters));
-    // res.send(characterService.findAll());
 });
 
 router.put('/:characterID', (req: Request, res: Response) => {
