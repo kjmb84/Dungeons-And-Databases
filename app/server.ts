@@ -5,6 +5,18 @@ import bodyParser from 'body-parser';
 import env from '../env';
 import NestedStructures from './nestedStructures';
 
+const cors = require('cors');
+const originsWhitelist = [
+    'https://localhost:4200'
+];
+
+const corsOptions = {
+    origin: (origin: string, callback) => {
+        const isWhitelisted = originsWhitelist.some(a => a === origin);
+        callback(null, isWhitelisted);
+    }
+}
+
 // const mongoURL = `${env.MongoScheme}//${env.MongoUser}:${env.MongoPassword}@${env.MongoServer}/${env.MongoDatabase}`;
 const mongoURL = 'mongodb://localhost:27017/test';
 console.log(mongoURL);
