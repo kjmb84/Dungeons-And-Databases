@@ -17,6 +17,7 @@
     "typescript": "^2.8.3"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.4",
     "concurrently": "^3.5.1",
     "tsc-watch": "^1.0.21"
   },

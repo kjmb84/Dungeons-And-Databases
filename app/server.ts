@@ -4,17 +4,17 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import env from '../env';
 import NestedStructures from './nestedStructures';
+import * as cors from 'cors';
+const cors2 = require('cors');
 
-const cors = require('cors');
-const originsWhitelist = [
-    'https://localhost:4200'
-];
+const API_URL = '*';
 
-const corsOptions = {
-    origin: (origin: string, callback) => {
-        const isWhitelisted = originsWhitelist.some(a => a === origin);
-        callback(null, isWhitelisted);
-    }
+const options: cors.CorsOptions = {
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token"],
+    credentials: true,
+    methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+    origin: API_URL,
+    preflightContinue: false
 }
 
 // const mongoURL = `${env.MongoScheme}//${env.MongoUser}:${env.MongoPassword}@${env.MongoServer}/${env.MongoDatabase}`;
@@ -29,23 +29,9 @@ mongoose.connect(mongoURL).catch(e => console.log(e));
  
 const app: express.Application = express();
 
-app.configure(() => {
-    app.use((req, res, next) => {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        next();
-    })
-    app.use(bodyParser.json());
-    app.use('/api', ApiController);
-})
-
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// })
-// app.use(bodyParser.json());
-// app.use('/api', ApiController);
+app.use(cors2());
+app.use(bodyParser.json());
+app.use('/api', ApiController);
 
 app.listen(env.Port, () => {
     console.log("listening"); 
